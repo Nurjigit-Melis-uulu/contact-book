@@ -7,7 +7,10 @@ function Navbar(props) {
   return (
     <div className={classes.Navbar}>
       <div className={classes.logo}>Contact Book</div>
-      <NavLink to="/ContactList" />
+      <div className={classes.links}>
+        <NavLink to="/">Contact list</NavLink>
+        <NavLink to="/ContactAdd">Add contact</NavLink>
+      </div>
     </div>
   );
 }

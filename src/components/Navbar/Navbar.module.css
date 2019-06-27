@@ -1,0 +1,34 @@
+.Navbar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 40px;
+  background: #222222;
+  color: white;
+  text-transform: uppercase;
+}
+
+.logo {
+  font-weight: bolder;
+}
+
+.links a {
+  font-size: .9em;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  border: 1px solid transparent;
+}
+
+.links a:hover {
+  border: 1px solid white;
+}
+
+.active {
+  border: 1px solid chocolate;
+  color: chocolate;
+}
