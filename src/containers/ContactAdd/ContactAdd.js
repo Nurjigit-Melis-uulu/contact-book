@@ -10,7 +10,7 @@ class ContactAdd extends Component {
   };
 
   nameCorrect = event => {
-    if (event.target.value > 0) {
+    if (event.target.value.length > 0) {
       this.setState({ nameCorrect: true });
     } else {
       this.setState({ nameCorrect: false });
@@ -18,7 +18,7 @@ class ContactAdd extends Component {
   };
 
   emailCorrect = event => {
-    if (event.target.value > 0) {
+    if (event.target.value.length > 0) {
       this.setState({ emailCorrect: true });
     } else {
       this.setState({ emailCorrect: false });
@@ -26,7 +26,7 @@ class ContactAdd extends Component {
   };
 
   phoneCorrect = event => {
-    if (event.target.value > 0) {
+    if (event.target.value.length > 0) {
       this.setState({ phoneCorrect: true });
     } else {
       this.setState({ phoneCorrect: false });
@@ -34,7 +34,7 @@ class ContactAdd extends Component {
   };
 
   pictureCorrect = event => {
-    if (event.target.value > 0) {
+    if (event.target.value.length > 0) {
       this.setState({ pictureCorrect: true });
     } else {
       this.setState({ pictureCorrect: false });
@@ -53,6 +53,14 @@ class ContactAdd extends Component {
     } else {
       disabled = true;
     }
+
+    console.log(
+      this.state.nameCorrect,
+      this.state.emailCorrect,
+      this.state.phoneCorrect,
+      this.state.pictureCorrect
+    );
+
     return (
       <div className={classes.ContactAdd}>
         <div className={classes.form}>
@@ -60,7 +68,7 @@ class ContactAdd extends Component {
           <label htmlFor="name">
             Name
             <input
-              onChange={this.nameCorrect}
+              onInput={this.nameCorrect}
               type="text"
               placeholder="enter name"
               name="name"
@@ -70,7 +78,7 @@ class ContactAdd extends Component {
           <label htmlFor="email">
             Email
             <input
-              onChange={this.emailCorrect}
+              onInput={this.emailCorrect}
               type="text"
               placeholder="enter email"
               name="email"
@@ -80,7 +88,7 @@ class ContactAdd extends Component {
           <label htmlFor="phone">
             Phone
             <input
-              onChange={this.phoneCorrect}
+              onInput={this.phoneCorrect}
               type="text"
               placeholder="enter phone number"
               name="phone"
@@ -90,7 +98,7 @@ class ContactAdd extends Component {
           <label htmlFor="picture">
             Picture
             <input
-              onChange={this.pictureCorrect}
+              onInput={this.pictureCorrect}
               type="text"
               placeholder="enter link"
               name="picture"
