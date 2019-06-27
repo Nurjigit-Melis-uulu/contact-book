@@ -31,6 +31,10 @@ input {
   box-sizing: border-box;
 }
 
+input:valid {
+  border: 1px solid rgb(31, 206, 15);
+}
+
 input:invalid {
   border: 1px solid rgb(189, 25, 25);
 }

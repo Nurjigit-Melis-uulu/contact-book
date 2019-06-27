@@ -3,15 +3,16 @@ import classes from "./ContactAdd.module.css";
 
 class ContactAdd extends Component {
   state = {
-    nameCorrect: false,
-    emailCorrect: false,
-    phoneCorrect: false,
-    pictureCorrect: false
+    name: false,
+    email: false,
+    phone: false,
+    picture: false,
+    contact: []
   };
 
   nameCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ nameCorrect: true });
+      this.setState({ nameCorrect: event.target.value });
     } else {
       this.setState({ nameCorrect: false });
     }
@@ -19,7 +20,7 @@ class ContactAdd extends Component {
 
   emailCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ emailCorrect: true });
+      this.setState({ emailCorrect: event.target.value });
     } else {
       this.setState({ emailCorrect: false });
     }
@@ -27,7 +28,7 @@ class ContactAdd extends Component {
 
   phoneCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ phoneCorrect: true });
+      this.setState({ phoneCorrect: event.target.value });
     } else {
       this.setState({ phoneCorrect: false });
     }
@@ -35,11 +36,13 @@ class ContactAdd extends Component {
 
   pictureCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ pictureCorrect: true });
+      this.setState({ pictureCorrect: event.target.value });
     } else {
       this.setState({ pictureCorrect: false });
     }
   };
+
+  sendContact = () => {};
 
   render() {
     let disabled = false;
@@ -105,7 +108,9 @@ class ContactAdd extends Component {
               required
             />
           </label>
-          <button disabled={disabled}>Add</button>
+          <button onClick={this.sendContact} disabled={disabled}>
+            Add
+          </button>
         </div>
       </div>
     );
