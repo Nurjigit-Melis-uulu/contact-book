@@ -8,3 +8,41 @@
   align-items: center;
   margin: 30px auto;
 }
+
+.form {
+  display: flex;
+  flex-flow: column;
+  margin: 40px 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  width: 100%;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 30px;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  border: 1px solid rgb(189, 25, 25);
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid black;
+  background: white;
+}
+
+button:disabled {
+  opacity: .6;
+}
