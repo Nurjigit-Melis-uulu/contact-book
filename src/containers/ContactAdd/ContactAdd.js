@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import classes from "./ContactAdd.module.css";
 
 class ContactAdd extends Component {
@@ -6,63 +8,72 @@ class ContactAdd extends Component {
     name: false,
     email: false,
     phone: false,
-    picture: false,
-    contact: []
+    picture: false
   };
 
   nameCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ nameCorrect: event.target.value });
+      this.setState({ name: event.target.value });
     } else {
-      this.setState({ nameCorrect: false });
+      this.setState({ name: false });
     }
   };
 
   emailCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ emailCorrect: event.target.value });
+      this.setState({ email: event.target.value });
     } else {
-      this.setState({ emailCorrect: false });
+      this.setState({ email: false });
     }
   };
 
   phoneCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ phoneCorrect: event.target.value });
+      this.setState({ phone: event.target.value });
     } else {
-      this.setState({ phoneCorrect: false });
+      this.setState({ phone: false });
     }
   };
 
   pictureCorrect = event => {
     if (event.target.value.length > 0) {
-      this.setState({ pictureCorrect: event.target.value });
+      this.setState({ picture: event.target.value });
     } else {
-      this.setState({ pictureCorrect: false });
+      this.setState({ picture: false });
     }
   };
 
-  sendContact = () => {};
+  sendContact = () => {
+    let picAddress =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+
+    if (this.state.picture) {
+      picAddress = this.state.picture;
+    } else {
+      picAddress =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+    }
+
+    let array = this.props.contacts;
+    array.push({
+      name: this.state.name,
+      email: this.state.email,
+      number: this.state.email,
+      picture: picAddress
+    });
+
+    this.props.onAddContact(array);
+  };
 
   render() {
     let disabled = false;
-    if (
-      this.state.nameCorrect &&
-      this.state.emailCorrect &&
-      this.state.phoneCorrect &&
-      this.state.pictureCorrect
-    ) {
+    if (this.state.name && this.state.email && this.state.phone) {
       disabled = false;
     } else {
       disabled = true;
     }
 
-    console.log(
-      this.state.nameCorrect,
-      this.state.emailCorrect,
-      this.state.phoneCorrect,
-      this.state.pictureCorrect
-    );
+    console.log(this.props.contacts);
 
     return (
       <div className={classes.ContactAdd}>
@@ -117,4 +128,18 @@ class ContactAdd extends Component {
   }
 }
 
-export default ContactAdd;
+const mapStateToProps = state => {
+  return {
+    contacts: state.contacts
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddContact: contacts => dispatch({ type: "ADD_CONTACT", contacts })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContactAdd);
