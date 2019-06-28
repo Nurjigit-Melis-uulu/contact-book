@@ -12,20 +12,22 @@ class ContactList extends Component {
     if ([...this.props.contacts].length > 0) {
       contact = [...this.props.contacts].map(contact => {
         return (
-          <Contact
-            key={contact.id}
-            name={contact.name}
-            email={contact.email}
-            phone={contact.phone}
-            picture={contact.picture}
-          />
+          <li>
+            <Contact
+              key={contact.id}
+              name={contact.name}
+              email={contact.email}
+              phone={contact.phone}
+              picture={contact.picture}
+            />
+          </li>
         );
       });
     } else {
       contact = <h2>Please, add your contacts!</h2>;
     }
 
-    return <div className={classes.ContactList}>{contact}</div>;
+    return <ol className={classes.ContactList}>{contact}</ol>;
   }
 }
 
