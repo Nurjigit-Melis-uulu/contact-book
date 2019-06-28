@@ -1,5 +1,5 @@
 .ContactList {
-  width: 100%;
+  width: 90%;
   max-width: 1000px;
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, .2);
@@ -7,4 +7,23 @@
   flex-flow: column;
   align-items: center;
   margin: 30px 20px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.ContactList li {
+  border-bottom: 1px solid silver;
+}
+
+.ContactList li:hover {
+  background: #eeeeee;
+}
+
+@media (max-width: 400px) {
+  .ContactList {
+    width: 100%;
+    align-items: stretch;
+    box-shadow: none;
+    list-style: none;
+  }
 }

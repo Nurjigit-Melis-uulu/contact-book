@@ -1,6 +1,5 @@
 .Contact {
-  width: 100%;
-  max-width: 400px;
+  width: 400px;
   display: flex;
   flex-flow: wrap;
   align-items: center;
@@ -28,6 +27,11 @@
   .picture {
     width: 50px;
     height: 50px;
+  }
+
+  .Contact {
+    max-width: 300px;
+    padding: 0;
   }
 
   .Contact p,
