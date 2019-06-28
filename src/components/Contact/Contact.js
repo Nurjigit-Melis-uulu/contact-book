@@ -12,6 +12,10 @@ function Contact(props) {
         <p className={classes.email}>{props.email}</p>
         <p className={classes.phone}>{props.phone}</p>
       </div>
+      <div className={classes.control}>
+        <button className={classes.edit}>Edit</button>
+        <button className={classes.delete}>Delete</button>
+      </div>
     </div>
   );
 }
