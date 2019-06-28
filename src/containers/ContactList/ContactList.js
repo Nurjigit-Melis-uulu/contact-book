@@ -22,8 +22,6 @@ class ContactList extends Component {
   search = event => {
     let value = event.target.value;
 
-    console.log(value);
-
     if (value.length === 0) {
       this.setState({
         contacts: this.props.contacts
@@ -74,8 +72,6 @@ class ContactList extends Component {
     } else {
       contact = <h2>Please, add your contacts!</h2>;
     }
-
-    console.log(this.state.contacts);
 
     return (
       <>

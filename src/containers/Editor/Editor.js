@@ -81,8 +81,6 @@ class Editor extends Component {
             picture: picAddress
           });
 
-          console.log(contact);
-
           this.props.onAddContact(array);
         }
       });
