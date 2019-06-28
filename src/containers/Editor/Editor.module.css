@@ -1,45 +1,34 @@
-.ContactAdd {
-  width: 100%;
-  max-width: 1000px;
-  border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, .2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px auto;
-}
-
-.form {
+.Editor {
   display: flex;
   flex-flow: column;
   margin: 40px 0;
 }
 
-.ContactAdd h2 {
+.Editor h2 {
   text-align: center;
 }
 
-.ContactAdd label {
+.Editor label {
   width: 100%;
   position: relative;
 }
 
-.ContactAdd input {
+.Editor input {
   width: 100%;
   padding: 10px;
   margin: 5px 0 30px;
   box-sizing: border-box;
 }
 
-.ContactAdd input:valid {
+.Editor input:valid {
   border: 1px solid rgb(31, 206, 15);
 }
 
-.ContactAdd input:invalid {
+.Editor input:invalid {
   border: 1px solid rgb(189, 25, 25);
 }
 
-.ContactAdd button {
+.Editor button {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px 20px;
@@ -47,6 +36,6 @@
   background: white;
 }
 
-.ContactAdd button:disabled {
+.Editor button:disabled {
   opacity: .6;
 }

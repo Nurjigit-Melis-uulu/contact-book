@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 
 import classes from "./App.module.css";
 import ContactList from "./containers/ContactList/ContactList";
-import ContactAdd from "./containers/ContactAdd/ContactAdd";
+import ContactAdd from "./components/ContactAdd/ContactAdd";
 import Navbar from "./components/Navbar/Navbar";
 
 class App extends Component {

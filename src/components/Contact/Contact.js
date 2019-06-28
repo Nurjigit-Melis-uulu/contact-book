@@ -30,7 +30,11 @@ function Contact(props) {
         <p className={classes.phone}>{props.phone}</p>
       </div>
       <div className={classes.control}>
-        <button className={classes.edit} data-id={props.id}>
+        <button
+          className={classes.edit}
+          data-id={props.id}
+          onClick={props.modalWindowOpen}
+        >
           Edit
         </button>
         <button

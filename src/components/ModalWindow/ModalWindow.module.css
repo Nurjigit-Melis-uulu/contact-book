@@ -1,0 +1,38 @@
+.ModalWindow {
+  min-width: 320;
+  width: 80%;
+  height: calc(100vh - 120px);
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 60px;
+  left: 10%;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.ModalWindow .close {
+  position: fixed;
+  left: 10%;
+  top: 60px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgb(212, 75, 34);
+  color: rgb(212, 75, 34);
+}
+
+.ModalWindow div {
+  position: absolute;
+  top: 0;
+}
+
+@media (max-height: 770px) {
+  .ModalWindow {
+    overflow-y: scroll;
+  }
+}

@@ -3,9 +3,21 @@ import { connect } from "react-redux";
 
 import Contact from "../../components/Contact/Contact";
 import classes from "./ContactList.module.css";
+import ModalWindow from "../../components/ModalWindow/ModalWindow";
 
 class ContactList extends Component {
-  state = {};
+  state = {
+    open: false,
+    editContactId: null
+  };
+
+  modalWindowOpen = event => {
+    this.setState({
+      open: !this.state.open,
+      editContactId: event.target.getAttribute("data-id")
+    });
+  };
+
   render() {
     let contact = <h2>Please, add your contacts!</h2>;
 
@@ -20,6 +32,7 @@ class ContactList extends Component {
               email={contact.email}
               phone={contact.phone}
               picture={contact.picture}
+              modalWindowOpen={this.modalWindowOpen}
             />
           </li>
         );
@@ -28,7 +41,17 @@ class ContactList extends Component {
       contact = <h2>Please, add your contacts!</h2>;
     }
 
-    return <ol className={classes.ContactList}>{contact}</ol>;
+    return (
+      <>
+        <ol className={classes.ContactList}>{contact}</ol>
+        <ModalWindow
+          EditContactId={this.state.editContactId}
+          EditorType="edit"
+          open={this.state.open}
+          modalWindowOpen={this.modalWindowOpen}
+        />
+      </>
+    );
   }
 }
 
