@@ -16,7 +16,7 @@ class ContactList extends Component {
             key={contact.id}
             name={contact.name}
             email={contact.email}
-            number={contact.phone}
+            phone={contact.phone}
             picture={contact.picture}
           />
         );

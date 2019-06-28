@@ -61,30 +61,32 @@ class ContactAdd extends Component {
         id: array.length,
         name: this.state.name,
         email: this.state.email,
-        number: this.state.email,
+        phone: this.state.phone,
         picture: picAddress
       });
 
       this.props.onAddContact(array);
+    } else {
+      array.map(contact => {
+        if (
+          contact.name !== this.state.name &&
+          contact.email !== this.state.email &&
+          contact.phone !== this.state.phone
+        ) {
+          array.push({
+            id: array.length,
+            name: this.state.name,
+            email: this.state.email,
+            number: this.state.email,
+            picture: picAddress
+          });
+
+          console.log(array);
+
+          this.props.onAddContact(array);
+        }
+      });
     }
-
-    array.forEach(contact => {
-      if (
-        contact.name !== this.state.name &&
-        contact.email !== this.state.email &&
-        contact.number !== this.state.number
-      ) {
-        array.push({
-          id: array.length,
-          name: this.state.name,
-          email: this.state.email,
-          number: this.state.email,
-          picture: picAddress
-        });
-
-        this.props.onAddContact(array);
-      }
-    });
   };
 
   render() {
