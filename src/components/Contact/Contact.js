@@ -6,7 +6,7 @@ import classes from "./Contact.module.css";
 function Contact(props) {
   let deleteContact = event => {
     let array = null;
-    let index = event.target.id;
+    let index = event.target.getAttribute("data-id");
 
     if (props.contacts.length > 1) {
       array = props.contacts.splice(index - 1, 1);
@@ -30,11 +30,13 @@ function Contact(props) {
         <p className={classes.phone}>{props.phone}</p>
       </div>
       <div className={classes.control}>
-        <button className={classes.edit}>Edit</button>
+        <button className={classes.edit} data-id={props.id}>
+          Edit
+        </button>
         <button
           className={classes.delete}
           onClick={deleteContact}
-          id={props.id}
+          data-id={props.id}
         >
           Delete
         </button>
