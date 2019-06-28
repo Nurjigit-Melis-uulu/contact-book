@@ -4,7 +4,7 @@
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, .2);
   display: flex;
-  justify-content: center;
+  flex-flow: column;
   align-items: center;
-  margin: 30px auto;
+  margin: 30px 20px;
 }
