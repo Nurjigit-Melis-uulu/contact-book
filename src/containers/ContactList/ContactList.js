@@ -8,7 +8,8 @@ import ModalWindow from "../../components/ModalWindow/ModalWindow";
 class ContactList extends Component {
   state = {
     open: false,
-    editContactId: null
+    editContactId: null,
+    contacts: this.props.contacts
   };
 
   modalWindowOpen = event => {
@@ -18,11 +19,44 @@ class ContactList extends Component {
     });
   };
 
+  search = event => {
+    let value = event.target.value;
+
+    console.log(value);
+
+    if (value.length === 0) {
+      this.setState({
+        contacts: this.props.contacts
+      });
+    } else {
+      let array = [];
+
+      this.props.contacts.forEach(contact => {
+        if (
+          contact.id === value ||
+          contact.name === value ||
+          contact.phone === value ||
+          contact.email === value ||
+          contact.picture === value
+        ) {
+          array.push(contact);
+          this.setState({
+            contacts: array
+          });
+        } else {
+          this.setState({
+            contacts: array
+          });
+        }
+      });
+    }
+  };
+
   render() {
     let contact = <h2>Please, add your contacts!</h2>;
 
-    if ([...this.props.contacts].length > 0) {
-      contact = [...this.props.contacts].map(contact => {
+    if (this.state.contacts.length > 0) {
+      contact = this.state.contacts.map(contact => {
         return (
           <li key={contact.id}>
             <Contact
@@ -41,9 +75,16 @@ class ContactList extends Component {
       contact = <h2>Please, add your contacts!</h2>;
     }
 
+    console.log(this.state.contacts);
+
     return (
       <>
-        <ol className={classes.ContactList}>{contact}</ol>
+        <ol className={classes.ContactList}>
+          <div className={classes.searchBox}>
+            <input type="text" onInput={this.search} />
+          </div>
+          {contact}
+        </ol>
         <ModalWindow
           EditContactId={this.state.editContactId}
           EditorType="edit"
