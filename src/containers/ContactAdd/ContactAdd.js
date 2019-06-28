@@ -54,15 +54,37 @@ class ContactAdd extends Component {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
     }
 
-    let array = this.props.contacts;
-    array.push({
-      name: this.state.name,
-      email: this.state.email,
-      number: this.state.email,
-      picture: picAddress
-    });
+    let array = [...this.props.contacts];
 
-    this.props.onAddContact(array);
+    if (array.length === 0) {
+      array.push({
+        id: array.length,
+        name: this.state.name,
+        email: this.state.email,
+        number: this.state.email,
+        picture: picAddress
+      });
+
+      this.props.onAddContact(array);
+    }
+
+    array.forEach(contact => {
+      if (
+        contact.name !== this.state.name &&
+        contact.email !== this.state.email &&
+        contact.number !== this.state.number
+      ) {
+        array.push({
+          id: array.length,
+          name: this.state.name,
+          email: this.state.email,
+          number: this.state.email,
+          picture: picAddress
+        });
+
+        this.props.onAddContact(array);
+      }
+    });
   };
 
   render() {

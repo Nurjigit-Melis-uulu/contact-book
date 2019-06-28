@@ -1,0 +1,10 @@
+.ContactList {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
