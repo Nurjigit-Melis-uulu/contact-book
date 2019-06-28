@@ -103,11 +103,7 @@ class Editor extends Component {
     let array = [...this.props.contacts];
 
     array.map(contact => {
-      if (
-        contact.name !== this.state.name &&
-        contact.email !== this.state.email &&
-        contact.phone !== this.state.phone
-      ) {
+      if (array.length > 0) {
         array.splice(this.props.editContactId - 1, 1, {
           id: array.length,
           name: this.state.name,
