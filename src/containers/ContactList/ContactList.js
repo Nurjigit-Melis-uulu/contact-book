@@ -12,9 +12,10 @@ class ContactList extends Component {
     if ([...this.props.contacts].length > 0) {
       contact = [...this.props.contacts].map(contact => {
         return (
-          <li>
+          <li key={contact.id}>
             <Contact
               key={contact.id}
+              id={contact.id}
               name={contact.name}
               email={contact.email}
               phone={contact.phone}
