@@ -77,11 +77,11 @@ class ContactAdd extends Component {
             id: array.length,
             name: this.state.name,
             email: this.state.email,
-            number: this.state.email,
+            phone: this.state.phone,
             picture: picAddress
           });
 
-          console.log(array);
+          console.log(contact);
 
           this.props.onAddContact(array);
         }
