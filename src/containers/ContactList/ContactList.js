@@ -12,6 +12,21 @@ class ContactList extends Component {
     contacts: this.props.contacts
   };
 
+  deleteContact = event => {
+    const array = [...this.state.contacts];
+    let id = event.target.getAttribute("data-id");
+    let index = this.props.contacts.findIndex(item => item.id === parseInt(id));
+    array.splice(index, 1);
+
+    this.setState({
+      contacts: array
+    });
+
+    this.props.onAddContact(array);
+
+    console.log(id, index, array);
+  };
+
   modalWindowOpen = event => {
     this.setState({
       open: !this.state.open,
@@ -65,6 +80,7 @@ class ContactList extends Component {
               phone={contact.phone}
               picture={contact.picture}
               modalWindowOpen={this.modalWindowOpen}
+              deleteContact={this.deleteContact}
             />
           </li>
         );
@@ -98,7 +114,13 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddContact: contacts => dispatch({ type: "ADD_CONTACT", contacts })
+  };
+};
+
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ContactList);

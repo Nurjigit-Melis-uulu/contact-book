@@ -67,12 +67,18 @@ class Editor extends Component {
 
       this.props.onAddContact(array);
     } else {
-      array.map(contact => {
+      this.props.contacts.forEach(contact => {
         if (
           contact.name !== this.state.name &&
           contact.email !== this.state.email &&
           contact.phone !== this.state.phone
         ) {
+          console.log(
+            contact.name !== this.state.name &&
+              contact.email !== this.state.email &&
+              contact.phone !== this.state.phone
+          );
+
           array.push({
             id: array.length,
             name: this.state.name,
@@ -82,7 +88,7 @@ class Editor extends Component {
           });
 
           this.props.onAddContact(array);
-        }
+        } else return;
       });
     }
   };
@@ -100,7 +106,7 @@ class Editor extends Component {
 
     let array = [...this.props.contacts];
 
-    array.map(contact => {
+    array.forEach(contact => {
       if (array.length > 0) {
         array.splice(this.props.editContactId - 1, 1, {
           id: array.length,

@@ -1,24 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import classes from "./Contact.module.css";
 
 function Contact(props) {
-  let deleteContact = event => {
-    let array = null;
-    let index = event.target.getAttribute("data-id");
-
-    if (props.contacts.length > 1) {
-      array = props.contacts.splice(index - 1, 1);
-    } else {
-      array = [];
-    }
-
-    console.log(array);
-
-    props.onAddContact(array);
-  };
-
   return (
     <div className={classes.Contact}>
       <div className={classes.picture}>
@@ -39,7 +22,7 @@ function Contact(props) {
         </button>
         <button
           className={classes.delete}
-          onClick={deleteContact}
+          onClick={props.deleteContact}
           data-id={props.id}
         >
           Delete
@@ -49,19 +32,4 @@ function Contact(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    contacts: state.contacts
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddContact: contacts => dispatch({ type: "ADD_CONTACT", contacts })
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Contact);
+export default Contact;
