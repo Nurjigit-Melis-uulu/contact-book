@@ -45,14 +45,12 @@ class Editor extends Component {
   };
 
   sendContact = () => {
-    let picAddress =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+    let picAddress = constants.linkToDefaultPicture;
 
     if (this.state.picture) {
       picAddress = this.state.picture;
     } else {
-      picAddress =
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+      picAddress = constants.linkToDefaultPicture;
     }
 
     let array = [...this.props.contacts];
