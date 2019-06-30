@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import classes from "./Editor.module.css";
+import * as constants from "../../constants";
 
 class Editor extends Component {
   state = {
@@ -66,42 +67,34 @@ class Editor extends Component {
       });
 
       this.props.onAddContact(array);
-    } else {
-      this.props.contacts.forEach(contact => {
-        if (
-          contact.name !== this.state.name &&
-          contact.email !== this.state.email &&
-          contact.phone !== this.state.phone
-        ) {
-          console.log(
-            contact.name !== this.state.name &&
-              contact.email !== this.state.email &&
-              contact.phone !== this.state.phone
-          );
-
-          array.push({
-            id: array.length,
-            name: this.state.name,
-            email: this.state.email,
-            phone: this.state.phone,
-            picture: picAddress
-          });
-
-          this.props.onAddContact(array);
-        } else return;
-      });
     }
+    this.props.contacts.forEach(contact => {
+      if (
+        contact.name !== this.state.name &&
+        contact.email !== this.state.email &&
+        contact.phone !== this.state.phone
+      ) {
+        array.push({
+          id: array.length,
+          name: this.state.name,
+          email: this.state.email,
+          phone: this.state.phone,
+          picture: picAddress
+        });
+        this.props.onAddContact(array);
+      } else {
+        return;
+      }
+    });
   };
 
   editContact = () => {
-    let picAddress =
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+    let picAddress = constants.linkToDefaultPicture;
 
     if (this.state.picture) {
       picAddress = this.state.picture;
     } else {
-      picAddress =
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYm-KcyvHy3PDkmh0V9KzkUk26255h0RwthshiaoanTnfH2B_IRg";
+      picAddress = constants.linkToDefaultPicture;
     }
 
     let array = [...this.props.contacts];
