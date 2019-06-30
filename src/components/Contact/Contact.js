@@ -14,18 +14,18 @@ function Contact(props) {
       </div>
       <div className={classes.control}>
         <button
+          className={classes.delete}
+          onClick={props.deleteContact}
+          data-id={props.id}
+        >
+          Del
+        </button>
+        <button
           className={classes.edit}
           data-id={props.id}
           onClick={props.modalWindowOpen}
         >
           Edit
-        </button>
-        <button
-          className={classes.delete}
-          onClick={props.deleteContact}
-          data-id={props.id}
-        >
-          Delete
         </button>
       </div>
     </div>

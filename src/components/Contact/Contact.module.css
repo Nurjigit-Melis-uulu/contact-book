@@ -8,6 +8,37 @@
   overflow: hidden;
 }
 
+.Contact .control {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Contact .control button {
+  background: white;
+  margin: 4px;
+  border-radius: 2px;
+  padding: 5px 10px;
+}
+
+.Contact .control .delete {
+  border: 2px solid rgb(90, 57, 57);
+}
+
+.Contact .control .edit {
+  border: 2px solid rgb(41, 85, 204);
+}
+
+.Contact .control .delete:hover {
+  background: rgb(148, 25, 25);
+  color: white;
+}
+
+.Contact .control .edit:hover {
+  background: rgb(24, 91, 153);
+  color: white;
+}
+
 .picture {
   width: 100px;
   height: 100px;
