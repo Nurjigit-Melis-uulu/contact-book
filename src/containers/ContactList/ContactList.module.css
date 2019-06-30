@@ -19,6 +19,18 @@
   background: #eeeeee;
 }
 
+.ContactList .searchBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ContactList .searchBox input {
+  width: 214px;
+  padding: 4px 6px;
+  margin: 20px 0;
+}
+
 @media (max-width: 400px) {
   .ContactList {
     width: 100%;

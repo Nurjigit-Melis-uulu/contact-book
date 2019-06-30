@@ -93,7 +93,11 @@ class ContactList extends Component {
       <>
         <ol className={classes.ContactList}>
           <div className={classes.searchBox}>
-            <input type="text" onInput={this.search} />
+            <input
+              type="text"
+              onInput={this.search}
+              placeholder="search, enter the exact contact data."
+            />
           </div>
           {contact}
         </ol>
