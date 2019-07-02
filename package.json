@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jest": "^24.8.0",
+    "jest-enzyme": "^7.0.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^7.1.0",
@@ -15,9 +17,6 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
-  },
-  "jest": {
-    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
   },
   "eslintConfig": {
     "extends": "react-app"
